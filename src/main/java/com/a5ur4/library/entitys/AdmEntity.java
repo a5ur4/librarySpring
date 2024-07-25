@@ -24,7 +24,6 @@ public class AdmEntity {
     private Integer id;
 
     private String name;
-
     private String password;
 
     public AdmEntity(String name, String password) {

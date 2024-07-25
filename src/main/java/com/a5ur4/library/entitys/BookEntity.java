@@ -28,13 +28,9 @@ public class BookEntity {
     private String title;
 
     private String author;
-
     private String genre;
-
     private String description;
-
     private Boolean isUsing;
-
     private Integer bookOwnerId;
 
     public BookEntity(String title, String author, String genre, String description, Boolean isUsing, Integer bookOwnerId) {

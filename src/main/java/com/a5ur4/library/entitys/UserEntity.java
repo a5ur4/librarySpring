@@ -25,14 +25,12 @@ public class UserEntity {
     private Integer id;
 
     private String name;
-
     private String password;
 
     @Column(unique = true)
     private String email;
 
     private String bookName;
-
     private Integer daysWithBook;
 
     public UserEntity(String name, String password, String email, String bookName, Integer daysWithBook) {
