@@ -18,7 +18,11 @@ public class AdmService {
         this.repository.save(newAdmin);
     }
 
-    public void deleteAdmin(Integer id) {
+    public void deleteAdmin(Integer id, String name) {
+        if (!this.repository.existsById(id) || !this.repository.findAdmByName(name).isPresent()) {
+            throw new RuntimeException("Admin not found");
+            
+        }
         this.repository.deleteById(id);
     }
 

@@ -33,7 +33,13 @@ public class UserController {
         return ResponseEntity.ok("User " + user.name() + " deleted");
     }
 
-    @GetMapping
+    @PostMapping("/update")
+    public ResponseEntity<String> updateUser(@RequestBody UserDTO user) {
+        this.userService.updateUser(user.id(), user.name(), user.password(), user.email());
+        return ResponseEntity.ok("User " + user.name() + " updated");
+    }
+
+    @GetMapping("/listAll")
     public ResponseEntity<List<UserEntity>> listAllUsers() {
         return ResponseEntity.ok(this.userService.listAllUsers());
     }

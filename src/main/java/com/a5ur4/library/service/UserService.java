@@ -19,7 +19,7 @@ public class UserService {
     }
 
     public void deleteUser(Integer id, String name) {
-        if (!this.repository.existsById(id)) {
+        if (!this.repository.existsById(id) || !this.repository.findUserByName(name).isPresent()) {
             throw new RuntimeException("User not found");
         }
         this.repository.deleteById(id);

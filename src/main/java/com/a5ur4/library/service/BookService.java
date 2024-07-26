@@ -18,11 +18,14 @@ public class BookService {
         this.repository.save(newBook);
     }
 
-    public void deleteBook(Integer id, String bookName) {
+    public void deleteBook(Integer id, String title) {
+        if (!this.repository.existsById(id) || !this.repository.findBookByTitle(title).isPresent()) {
+            throw new RuntimeException("Book not found");
+        }
         this.repository.deleteById(id);
     }
 
-    public void updateBook(Integer id, String title, String author, String genre) {
+    public void updateBook(Integer id, String title, String author, String genre, String description) {
         BookEntity book = this.repository.findBookById(id).orElseThrow(() -> new RuntimeException("Book not found"));
         book.setTitle(title);
         book.setAuthor(author);
